@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        // TSはECMAScript5に変換
+        "target": "es5",
+        // TSのモジュールはES Modulesとして出力
+        "module": "es2015",
+        // node_modulesからライブラリを読み込む
+        "moduleResolution": "node",
+        // 暗黙的なanyを許可する(頑張らない)
+        "noImplicitAny": false,
+        // コメントは削除しない
+        "removeComments": false,
+        // コンパイルターゲットがES5時にfor-of文を使えるようにする
+        "downlevelIteration": true,
+        
+        "allowSyntheticDefaultImports": true,
+    }
+}
