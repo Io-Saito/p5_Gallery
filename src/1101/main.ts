@@ -6,7 +6,7 @@ let a, d, x, y, h, s;
 let num;
 let t = 0.0;
 let vel = 0.012;
-let text="あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゐゆゑよわをん".split("")
+let text_list=["いろはにほへと","ちりぬるを","わかよたれそ","つねならむ","うゐのおくやま","けふこえて","あさきゆめみし","ゑひもせす"]
 let color_list=["0081a7-00afb9-fed9b7-f07167-fdfcdc","faf0ca-f4d35e-ee964b-f95738-0d3b66","da2c38-226f54-87c38f-43291f-f4f0bb","f8f7c1-f46902-da506a-fae402-92accc"]
 p.setup = ()=> {
 	p.createCanvas(600, 600);
@@ -17,16 +17,20 @@ p.setup = ()=> {
 	p.textAlign(p.CENTER,p.CENTER)
 }
 
-const textdraw=(x,y)=>{
+const textdraw=(x,y,text)=>{
 	p.textSize(p.abs(y)*2)
-	p.text(p.random(text),x,y)
+	p.text(text,x,y)
 }
 p.draw = () => {
 	
 	var c =color_list[p.int(p.random(0,1)*4)]
 	let colors=c.split("-").map(a => "#" + a);
 	p.background(colors[4]);
+	colors=colors.slice(0,4)
+	let start=p.int(p.random(0,4))
+	let text_=text_list.slice(start,start+3)
 	for (let j = 100; j < p.height - 100; j += 160) {
+		let _text_ =text_[0].split("")
 		p.push();
 		p.translate(0, j)
 		let a = p.PI / 12;
@@ -36,12 +40,12 @@ p.draw = () => {
 		y = x * p.tan(a / 2);
 		h = p.sqrt(p.sq(x) + p.sq(y));
 		s = (h + y) / (h - y);
-
 		while (x < p.width - 120) {
 			let cc = p.color(p.random(colors))
 			p.fill(cc);
 			if (p.int(p.random(100))%3==0){
-				textdraw(x,y)
+				textdraw(x,y,_text_[0])
+				_text_.shift();
 			}else{
 				p.ellipse(x, y, (2 * y));
 			}
@@ -49,7 +53,8 @@ p.draw = () => {
 			p.push();
 			p.translate(p.width - 13, 158)
 			if (p.int(p.random(100))%3==0){
-				textdraw(-x,-y)
+				textdraw(-x,-y,_text_[0])
+				_text_.shift();
 			}else{
 				p.ellipse(-x, -y, (2 * y));
 			}
@@ -59,7 +64,8 @@ p.draw = () => {
 		}
 		p.pop();
 
-		p.pop();
+		p.pop()
+				text_.shift()
 	}
 
 	t += vel;
