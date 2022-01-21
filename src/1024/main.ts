@@ -18,7 +18,7 @@ export const sketch = (p: p5) => {
     };
 
     function grain(){
-  drawText("決\nし\nて\nあ\nな\nた\nを\n捨\nて\nま\nせ\nん");
+  drawText("共依存");
 }
 
 function drawText(tt) {

@@ -4,7 +4,7 @@ export const sketch = (p: p5) => {
     let i=0;
     let shapes=[]
     let dis
-    let colors=["#ff794e","#ff9394","#ffdb8d","#a2ffc9","#07c5ce","#5973fe"]
+    let colors=["#ff0000","#ffff00","#00ff00","#00ffff","#0000ff","#ff00ff"].map(x=>p.color(x))
     p.setup=()=>{
         let size
 		size=p.min([p.windowHeight,p.windowWidth])*0.9
@@ -13,6 +13,9 @@ export const sketch = (p: p5) => {
         p.rectMode(p.CENTER)
         p.ellipseMode(p.CENTER)
         // shapes.push(new  RotatingTri(150))
+        colors.forEach(x=>x.setAlpha(180))
+        console.log(colors[0])
+        
         p.angleMode("degrees")
         for (let i=0; i<3; i++){
             let low_s=[]
@@ -34,7 +37,8 @@ export const sketch = (p: p5) => {
     }
     
     p.draw=()=>{
-        p.background("#2A3D52")
+        p.background("#ffffff")
+        
         p.translate(p.width/2, p.height/2)
         for (let i=0; i<3; i++){
             for(let r=0; r<3; r++){
@@ -410,7 +414,7 @@ export const sketch = (p: p5) => {
                 let x=start+(l-1)*this.size/5
                 p.fill(colors[r-1])
                 p.stroke(colors[r-1])
-                p.circle(x,y,10)
+                p.circle(x,y,12)
             }
         }
         p.translate(-this.place.l,-this.place.c)

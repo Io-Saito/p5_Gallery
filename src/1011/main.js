@@ -5,7 +5,7 @@ var sketch = function (p) {
     var i = 0;
     var shapes = [];
     var dis;
-    var colors = ["#ff794e", "#ff9394", "#ffdb8d", "#a2ffc9", "#07c5ce", "#5973fe"];
+    var colors = ["#ff0000", "#ffff00", "#00ff00", "#00ffff", "#0000ff", "#ff00ff"].map(function (x) { return p.color(x); });
     p.setup = function () {
         var size;
         size = p.min([p.windowHeight, p.windowWidth]) * 0.9;
@@ -14,6 +14,8 @@ var sketch = function (p) {
         p.rectMode(p.CENTER);
         p.ellipseMode(p.CENTER);
         // shapes.push(new  RotatingTri(150))
+        colors.forEach(function (x) { return x.setAlpha(180); });
+        console.log(colors[0]);
         p.angleMode("degrees");
         for (var i_1 = 0; i_1 < 3; i_1++) {
             var low_s = [];
@@ -34,7 +36,7 @@ var sketch = function (p) {
         }
     };
     p.draw = function () {
-        p.background("#2A3D52");
+        p.background("#ffffff");
         p.translate(p.width / 2, p.height / 2);
         for (var i_2 = 0; i_2 < 3; i_2++) {
             for (var r = 0; r < 3; r++) {
@@ -341,7 +343,7 @@ var sketch = function (p) {
                     var x = start + (l - 1) * this.size / 5;
                     p.fill(colors[r - 1]);
                     p.stroke(colors[r - 1]);
-                    p.circle(x, y, 10);
+                    p.circle(x, y, 12);
                 }
             }
             p.translate(-this.place.l, -this.place.c);
