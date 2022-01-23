@@ -6,9 +6,10 @@ export const sketch = (p: p5) => {
     let tCount = 200;
     let trangX = [];
     let trangY = [];
+    let c;
 
     p.setup=()=>{
-        p.createCanvas(600,600);
+        c=p.createCanvas(600,600);
         p.colorMode("rgb")
         p.angleMode("radians");
         p.blendMode(p.DARKEST)
@@ -103,6 +104,12 @@ for (let i = 0; i < tCount - 3; i++) {
             let y=size*p.sin(p.PI/n)
             p.line(0,0,x,y)
     }
+
+    p.keyPressed=()=> {
+
+      console.log("pressed")
+      p.saveCanvas(c, 'myCanvas', 'jpg');
+}
 }
 
 

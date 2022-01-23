@@ -5,9 +5,10 @@ export const sketch = (p: p5) => {
     let tCount = 400;
     let trang = [];
     let i=0;
+    let c;
 
     p.setup=()=>{
-        p.createCanvas(p.windowWidth,p.windowHeight);
+        c=p.createCanvas(p.windowWidth,p.windowHeight);
         p.frameRate(10);
         p.colorMode("rgb")
         p.angleMode("radians");

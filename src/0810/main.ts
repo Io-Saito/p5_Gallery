@@ -2,10 +2,11 @@ import * as p5 from 'p5';
 
 
 export const sketch=(p: p5)=>{
+  let c;
 
     let particles = [];
     p.setup = () => {
-        p.createCanvas(600, 600);
+        c=p.createCanvas(600, 600);
         for(let i = 0;i<p.width/10;i++){
             particles.push(new Particle());
         }
@@ -85,6 +86,12 @@ class Particle {
       }
     });
   }
+}
+
+p.keyPressed=()=> {
+
+      console.log("pressed")
+      p.saveCanvas(c, 'myCanvas', 'jpg');
 }
 
 // an array to add multiple particles

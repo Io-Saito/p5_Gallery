@@ -8,10 +8,11 @@ let color=[["#fcde35","#feffdc","#ffea72"],
             ["#ffdf32","#fdffde","#FFA478"]]
 
 let strings=["その","檸檬の色彩は","ガチャガチャした","色の階調を","ひっそりと","紡錘形の身体の中へ","吸収してしまって、","カーンと","冴えかえっていた。"]
+let c;
 
 p.setup=()=> {
     p.angleMode(p.DEGREES);
-    p.createCanvas(900, 900);
+    c=p.createCanvas(750, 750);
     p.noLoop()
     p.textFont("Sawarabi Mincho");
     p.textAlign(p.CENTER, p.CENTER);
@@ -127,6 +128,12 @@ function myCircle(cx, cy, radius) {
 		p.stroke(c);
 		p.ellipse(cx, cy, radius + i, radius + i);
 	}
+}
+
+p.keyPressed=()=> {
+
+      console.log("pressed")
+      p.saveCanvas(c, 'myCanvas', 'jpg');
 }
 
 }

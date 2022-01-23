@@ -4,11 +4,12 @@ export const sketch = (p: p5) => {
     let flock;
     let ripples =[];
     let img;
+    let c;
     p.preload = () => {
       img = p.loadImage('assets/japanese-paper.jpg');
     };
     p.setup = () => {
-        p.createCanvas(600, 600);
+        c=p.createCanvas(600, 600);
 
         flock = new Flock();
                  for (let i = 0; i < 20; i++) {
@@ -252,6 +253,11 @@ class Ripple {
       ripples.push(new Ripple(this.x, p.height + this.r, this.v, this.r, this.t))
     return ripples
   }
+}
+p.keyPressed=()=> {
+
+      console.log("pressed")
+      p.saveCanvas(c, 'myCanvas', 'jpg');
 }
 
 }

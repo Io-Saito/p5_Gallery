@@ -2,9 +2,9 @@ import * as p5 from 'p5';
 
 export const sketch = (p: p5) => {
     let colors=["#ffedcd","#ff3b5f","#fe923d","#6fc3c3","#ffcab0","#274a64"]
-
+    let c;
     p.setup=()=>{
-        p.createCanvas(600,600)
+        c=p.createCanvas(600,600)
         p.colorMode("rgb")
         p.angleMode("radians")
         p.noLoop()
@@ -112,4 +112,9 @@ export const sketch = (p: p5) => {
 
 }
 
+p.keyPressed=()=> {
+
+      console.log("pressed")
+      p.saveCanvas(c, 'myCanvas', 'jpg');
+}
 }

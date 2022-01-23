@@ -5,10 +5,11 @@ export const sketch = (p: p5) => {
     let shapes=[]
     let dis
     let colors=["#ff0000","#ffff00","#00ff00","#00ffff","#0000ff","#ff00ff"].map(x=>p.color(x))
+    let c;
     p.setup=()=>{
         let size
 		size=p.min([p.windowHeight,p.windowWidth])*0.9
-			p.createCanvas(size,size)
+		c=p.createCanvas(size,size)
         dis=size/600
         p.rectMode(p.CENTER)
         p.ellipseMode(p.CENTER)
@@ -477,4 +478,9 @@ export const sketch = (p: p5) => {
             this.angle+=p.sin(i)
         }
     }
+    p.keyPressed=()=> {
+
+      console.log("pressed")
+      p.saveCanvas(c, 'myCanvas', 'jpg');
+}
 }
