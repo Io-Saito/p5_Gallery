@@ -6,14 +6,24 @@ const col_buil=["#0e190c","#260f01","#000814","#0a1326"]
 const col_right=["#ffff3f","#eae2b7","#f4a261","#fefae0","#bfd200"]
 let tr;
 let c
+let strings=["トパアズの目をした魚たちの群れが    宇宙とも海とも知れない場所を",
+"彷徨っています      目は，ぽとぽと落ちてきて",
+"あたりはあめ玉みたいな蜂蜜色でいっぱいになりました",
+"目を失くした魚は",
+"生きているか死んでいるかわからないまま",
+"... ..  .    .",
+"何匹か消えてしまいました"]
+let f;
 
+p.preload=()=>{
+	f=p.loadFont("assets/ShipporiMinchoB1-Regular.ttf")
+}
 p.setup=()=> {
 	c=p.createCanvas(720, 720, p.WEBGL);
 	p.colorMode(p.HSB, 360, 100, 100, 100);
 	p.angleMode(p.DEGREES);
 	p.noLoop()
 	p.ortho(-p.width / 2, p.width / 2, -p.height / 2, p.height / 2, -5000, 5000);
-
 }
 
 let palette;
@@ -33,6 +43,15 @@ p.draw=()=>{
 	p.randomSeed(seed);
 	p.background("#031d30");
 	p.translate(-p.width/2,-p.height/2)
+					let str=strings.map(x=>x.split('').join(''))
+	console.log(str)
+	      for (let s=0; s<15; s++){
+        let string=str[s]
+		p.textFont(f)
+        p.fill("#ffffff")
+        p.textSize(15);
+        p.text(string,p.random(30,80), 30+(p.width-120)*s/13);
+    }
 	for(var o=0;o<p.height/2;o+=10*p.random()){
 		p.stroke(255, 255, 255,60)
 		p.strokeWeight(p.random(1))
@@ -61,7 +80,7 @@ p.draw=()=>{
 		px=xx
 		py=yy
 }
-		
+
 	p.translate(p.width/2,p.height/2)
 	p.translate(0, p.height / 3, 0);
 	// orbitControl();
@@ -85,6 +104,8 @@ p.draw=()=>{
 
 	separateGrid(-d/2, 0, -d / 2, d, minD);
 	p.pop();
+
+
 
 }
 
@@ -123,7 +144,7 @@ function drawBuilding(w, h, d) {
 	p.box(w, h, d);
 	let col_ri=col_right.concat(new Array<string>(30).fill(bc))
 
-	let w_num = p.int(p.random(2, 5));
+	let w_num = p.int(p.random(4, 6));
 
 	let w_offset = w / 10;
 	let w_margin = w_offset / 5;

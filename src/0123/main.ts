@@ -6,12 +6,15 @@ let _minWidth;
 let _palette =
 ["b3001b","ffd275","255c99"];
 
+let strings=["きみの感性のかけらは","つめたく透き通っていて","しゃりしゃりと音がして","桜の香りがして","淋しいのだろう",
+"それを一つぶ一つぶ","丁寧に喰べる","わたしの憧憬を","きみの孤独は","しっかりと映していて","きみの感性は","美味しいのだった","それで充分かな"]
+
 let colors=[
   ["#caf0f8","#48cae4","#ffffff","#0096c7"],//blue
   ["#fff0f3","#ffccd5","#ffffff","#ff4d6d"],//red
   ["#80ffdb","#b2f7ef","#3dccc7","#ffffff"]//turquoise
 ]
-
+let stringcolor=["#0096c7","#3dccc7","#ff4d6d"]
 let bg=["#f2b5d4","#c4fff9","#ffffff"]
 let _points;
 let c;
@@ -27,6 +30,7 @@ p.setup=()=>{
   p.noStroke();
   p.strokeJoin(p.ROUND);
   p.noLoop()
+  p.textFont("Sawarabi Mincho");
 
   setObject();
   _bg=setBg();
@@ -415,6 +419,14 @@ for (let i = 0; i < tCount - 3; i++) {
   }
   p.translate(-gems[i].center.x, -gems[i].center.y);
 }
+	let str=strings.map(x=>x.split('').join('\n'))
+	console.log(str)
+	      for (let s=0; s<15; s++){
+        let string=str[s]
+        p.fill(p.random(stringcolor))
+        p.textSize(15);
+        p.text(string, 660-(p.width-120)*s/13, p.random(80,150));
+    }
 
 }
 

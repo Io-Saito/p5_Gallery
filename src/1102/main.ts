@@ -7,7 +7,13 @@ let color=[["#fcde35","#feffdc","#ffea72"],
             ["#a1d567","#FEFFDB","#d9ed7c"],
             ["#ffdf32","#fdffde","#FFA478"]]
 
-let strings=["その","檸檬の色彩は","ガチャガチャした","色の階調を","ひっそりと","紡錘形の身体の中へ","吸収してしまって、","カーンと","冴えかえっていた。"]
+let strings=["一輪の",
+"わたしの身体から","すこしずつ消えていった",
+"一つ一つのレモンは",
+"わたしの体を支える柱のように",
+"空の上を漂う",
+"それらが私の心に",
+"運んでくる","静かで優しい","レモンの香り"]
 let c;
 
 p.setup=()=> {
@@ -89,12 +95,11 @@ for(let i = 0; i < 10; i++){
     }
   }
 
-      for (let s=0; s<11; s++){
+      for (let s=0; s<12; s++){
         let string=strings[s]
         p.fill("#FFFFFF")
-        let size =p.map(string.length,2,9,100,36)
-        p.textSize(size);
-        p.text(string, p.random(100,p.width-100),p.random(0,80)+p.height*s/11+80);
+        p.textSize(30);
+        p.text(string, p.random(100,p.width-100),p.random(0,80)+p.height*s/12+80);
     }
 }
     function Lemon(x,y,r,angle_start,angle_end,c_list){
