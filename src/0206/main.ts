@@ -28,7 +28,7 @@ export const sketch = (p: p5) => {
             let y = a*p.exp(b*j)*p.sin(j)
             let dx=a*p.exp(b*j)*(b*p.cos(j)-p.sin(j))
             let dy=a*p.exp(b*j)*(b*p.sin(j)+p.cos(j))
-            let arc=p.atan(dy/dx)
+            let arc=p.atan((dy+0.001)/(dx+0.001))
             let x_scale =p.random(1.5,2.0)
             let y_scale =1
             for (let k=0; k<7; k++){
@@ -101,6 +101,7 @@ export const sketch = (p: p5) => {
             c=p.color("#FFFFFF")
             c.setAlpha(150)
             p.fill(c)
+            // p.noStroke()
             p.stroke(c)
             p.beginShape();
             for (let i=0; i<p.TWO_PI; i+=0.1){

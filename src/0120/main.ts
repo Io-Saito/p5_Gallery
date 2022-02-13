@@ -56,14 +56,14 @@ const wave2=()=>{
     let cx = p.random(p.width);
 	let cy = p.random(p.height);
 
-let noiseSeed= p.random(500)
-let z = p.random(100);
-let alpha = p.map(z, 0, 100, 0, 250);
+	let noiseSeed= p.random(500)
+	let z = p.random(100);
+	let alpha = p.map(z, 0, 100, 0, 250);
 
 	let strkColor = p.color(253);
     let before=[];
-for(var o=0;o<10;o++){
-	for (let i = 0; i < p.width * 1.2; i += p.random(1)) {
+	for(var o=0;o<10;o++){
+		for (let i = 0; i < p.width * 1.2; i += p.random(1)) {
 			let strkColor = p.color(p.random(colors));
 			strkColor.setAlpha(alpha);
 			p.strokeWeight(p.random(1));
@@ -79,21 +79,18 @@ for(var o=0;o<10;o++){
             before[1]=y_0
             if(o==0){
                 p.noStroke()
-                 p.fill(255,255,255)
-							 let xx = before[0]+p.random(-20,20)
-							 let yy = before[1]+p.random(-20,20)
-							 let ww = p.random(5)
-                             let prob=p.random(1)
-                             if(prob<0.05){
-							 p.ellipse(xx,yy,ww,ww)
-                             }
+                p.fill(255,255,255)
+				let xx = before[0]+p.random(-20,20)
+				let yy = before[1]+p.random(-20,20)
+				let ww = p.random(5)
+                let prob=p.random(1)
+                if(prob<0.05){
+					p.ellipse(xx,yy,ww,ww)
+                }
             }
-
-	}
-    // 
-               
-			 }
-            }
+		}
+    }
+}
 
 
 p.draw=()=> {
