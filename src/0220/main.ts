@@ -3,10 +3,11 @@ import * as p5 from 'p5';
 export const sketch = (p: p5) => {
     let circleG;
 let circles = [];
+let canvas;
 let colors = ["#6e4637", "#5e747b", "#eceadf", "#cea2a1"];
 
     p.setup=()=>{
-        p.createCanvas(600, 600);
+        canvas=p.createCanvas(600, 600);
         colors = p.shuffle(colors);
         p.background(colors[0]);
         p.noLoop();
@@ -95,11 +96,12 @@ function flower(p, cx, cy, d) { //黒い花弁があるやつ
 	}
 	p.pop();
 }
+
+        p.keyPressed=()=> {
+
+      console.log("pressed")
+      p.saveCanvas(canvas, 'myCanvas', 'jpg');
+}
 }
 
 
-//         p.keyPressed=()=> {
-
-//       console.log("pressed")
-//       p.saveCanvas(canvas, 'myCanvas', 'jpg');
-// }
