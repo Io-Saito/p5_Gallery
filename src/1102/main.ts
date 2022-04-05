@@ -34,7 +34,7 @@ for(let i = 0; i < 10; i++){
 		myCircle(x, y, size);
 	}
 	for(let i = 0; i < p.width * p.height / 100; i++){
-				let x = p.random(p.width);
+		let x = p.random(p.width);
 		let y = p.random(p.height);
 		p.stroke("#FFFFFF")
 		p.point(x, y);

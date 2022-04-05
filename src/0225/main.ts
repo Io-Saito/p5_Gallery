@@ -6,15 +6,21 @@ let flowers = [];
 let canvas;
 let BG;
 let BG2;
-let colors = ["#92a577", "#6D4043",  "#cea2a1"];
+let colors = ["#005f73","#0a9396","#ee9b00","#ca6702", "#bb3e03", "#ae2012", "#9b2226","#800E12"];
+//#DB5724,#ECC898,#EDC05C,
+//#CEE3D7,#A2CEC7,#83af9b,
+//#375128,#CBDBE3,#54A6C7,
+//#3C4F66,#E9C6C2,#C2C6D5,
+//#B7BEE4,#F3F2EE,#fc9d9a,#c8c8a9
+
 
     p.setup=()=>{
         canvas=p.createCanvas(600, 600);
         colors = p.shuffle(colors);
-        p.background("#eceadf");
+        p.background("#F3F2EE");
         p.noLoop();
 		// p.angleMode(p.RADIANS)
-        
+        p.blendMode(p.BURN)
         BG = createBG();
 			
 }
@@ -27,6 +33,7 @@ let colors = ["#92a577", "#6D4043",  "#cea2a1"];
 const createBG=()=>{
 
 	let pg = p.createGraphics(p.width, p.height);
+	pg.blendMode(p.BURN)
 	
 	for (let i = 0; i < 3; i++){
 		pg.translate(pg.width/2,pg.height/2)
@@ -41,7 +48,8 @@ const createBG=()=>{
 }
 
 const wave2=(bg)=>{
-		let strkColor = p.color("#AD9767");
+		let strkColor = p.color("#375128");
+		strkColor.setAlpha(50);
 	p.noiseSeed(p.random(100));
 	let r=p.random(0,30)
 	for(var o=0;o<5;o++){
@@ -80,6 +88,7 @@ const wave2=(bg)=>{
 				
 			}
 		}
+		bg.line(before[1], before[0], y,x)
 			if (x!=0){ 
 			before[0] =x
             before[1]=y
@@ -105,19 +114,22 @@ function flower(bg,cx, cy, d) { //黒い花弁があるやつ
 
 
 	bg.noStroke();
-	for (let i = 0; i <= num; i++) {
+	let c=p.random(0, colors.length)
+	let col=p.color(colors[p.int(c)])
+	col.setAlpha(250)
+	for (let i = 0; i <num; i++) {
 		bg.rotate(angle);
-		bg.fill(colors[p.int(p.random(0, colors.length))]);
+		bg.fill(col);
 		bg.ellipse(0, d / 4, d / 2, d / 2);
 		bg.erase();
 		bg.ellipse(0, 0, d / 2, d / 2);
 		bg.noErase();
 	}
 
-	for (let i = 0; i <= num; i++) {
+	for (let i = 0; i < num; i++) {
 		bg.rotate(angle);
 		bg.noStroke();
-		bg.fill(colors[p.int(p.random(0, colors.length))]);
+		bg.fill(colors[p.int(c)]);
 		bg.rect(0, 0, 2, d / 4); //d/10は適当に変えてください
 	}
 	bg.pop();
