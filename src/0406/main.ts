@@ -2,7 +2,7 @@ import * as p5 from 'p5';
 
 export const sketch = (p: p5) => {
     let canvas
-let colors = ["#005f73","#0a9396","#ee9b00","#ca6702", "#bb3e03", "#ae2012", "#9b2226"];
+let colors = ["#005f73","#0a9396","#ee9b00","#ca6702", "#bb3e03", "#ae2012", "#9b2226","#800E12"];
 
 let li=[];
 let x;
@@ -17,8 +17,19 @@ p.setup=()=> {
 
   let r=40;
   let c=0;
-  for (let j=100; j<=500; j+=(r*1.5)){
-      for (let i=100; i<=500; i+=(r*p.sqrt(3))){
+  for (let j=0; j<=600; j+=(r*1.5)){
+      for (let i=0; i<=100; i+=(r*p.sqrt(3))){
+        if (c%2==0){
+            li.push(new Hxagon(x,i,j))
+        }else{
+          li.push(new Hxagon(x,i+(r*p.sqrt(3)/2),j))
+        }
+      }
+      c+=1;
+  }
+
+    for (let j=0; j<=600; j+=(r*1.5)){
+      for (let i=500; i<=600; i+=(r*p.sqrt(3))){
         if (c%2==0){
             li.push(new Hxagon(x,i,j))
         }else{
@@ -61,12 +72,12 @@ class Hxagon{
   }
   create(){
 
-    if(this.fill==1){
+    if(this.fill==0){
         this.pg.noFill()
         this.pg.stroke(this.c)
         this.hex()
         this.katachi(this.x,this.y,110)
-    }else if(this.fill==2){
+    }else if(this.fill==1){
         this.pg.fill(this.c)
 
         this.hex()

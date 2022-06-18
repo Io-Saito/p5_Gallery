@@ -33,7 +33,12 @@ const createBG=()=>{
 for (let i=col/2; i>j; i--){
     let x_center=(3+i)*100-50 
     let y_center=j*100+ 50
+        pg.translate(x_center,y_center)
+    pg.rotate(95)
     hana(pg,x_center,y_center,p.width/col)
+    pg.rotate(-95)
+    pg.translate(-x_center,-y_center)
+
     console.log(x_center,y_center)
 }
     }
@@ -42,7 +47,11 @@ for (let i=col/2; i>j; i--){
 for (let i=0; i<=(j-3); i++){
     let x_center=i*100+50 
     let y_center=(j+1)*100 - 50
+    pg.translate(x_center,y_center)
+    pg.rotate(95)
     hana(pg,x_center,y_center,p.width/col)
+    pg.rotate(-95)
+    pg.translate(-x_center,-y_center)
     console.log(x_center,y_center)
 }
     }
@@ -51,8 +60,8 @@ for (let i=0; i<=(j-3); i++){
 }
 
 let hana=(pg,x,y,s_)=>{
-    pg.translate(x,y)
-    let s=s_*0.45
+    
+    let s=s_*0.6
     pg.noStroke();
 			pg.push();
 			pg.fill(p.random(colors));
@@ -68,7 +77,6 @@ let hana=(pg,x,y,s_)=>{
 			pg.fill(p.random(colors));
 			pg.ellipse(0, 0, s/4, s/4);
 			pg.pop();
-            pg.translate(-x,-y)
 
 }
         p.keyPressed=()=> {

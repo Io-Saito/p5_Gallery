@@ -19,7 +19,7 @@ p.preload=()=>{
 	f=p.loadFont("assets/ShipporiMinchoB1-Regular.ttf")
 }
 p.setup=()=> {
-	c=p.createCanvas(720, 720, p.WEBGL);
+	c=p.createCanvas(1074, 1074, p.WEBGL);
 	p.colorMode(p.HSB, 360, 100, 100, 100);
 	p.angleMode(p.DEGREES);
 	p.noLoop()
@@ -44,14 +44,8 @@ p.draw=()=>{
 	p.background("#031d30");
 	p.translate(-p.width/2,-p.height/2)
 					let str=strings.map(x=>x.split('').join(''))
-	console.log(str)
-	      for (let s=0; s<15; s++){
-        let string=str[s]
-		p.textFont(f)
-        p.fill("#ffffff")
-        p.textSize(15);
-        p.text(string,p.random(30,80), 30+(p.width-120)*s/13);
-    }
+
+
 	for(var o=0;o<p.height/2;o+=10*p.random()){
 		p.stroke(255, 255, 255,60)
 		p.strokeWeight(p.random(1))
@@ -62,7 +56,7 @@ p.draw=()=>{
 		}
 	}
 		let px=0,py=0,xx=0,yy=0
-	for(var i=0;i<200;i++){
+	for(var i=0;i<450;i++){
 		let rr = p.random(4)
 		p.fill(173, 239, 207,p.random(255))
 		if (p.random()<0.3){
@@ -73,7 +67,7 @@ p.draw=()=>{
 		xx=p.random(p.width)
 		yy=p.random(p.height/2)
 		p.ellipse(xx,yy,rr,rr)
-		if ( p.dist(xx,yy,px,py)<70){
+		if ( p.dist(xx,yy,px,py)<100){
 				p.stroke(255,p.random(150))
 				p.line(xx,yy,px,py)
 		}

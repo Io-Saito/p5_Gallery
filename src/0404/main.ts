@@ -5,12 +5,8 @@ let flowers = [];
 let canvas;
 let BG;
 
-let colors = ["#005f73","#0a9396","#ee9b00","#ca6702", "#bb3e03", "#ae2012", "#9b2226"];
-//#DB5724,#ECC898,#EDC05C,
-//#CEE3D7,#A2CEC7,#83af9b,
-//#375128,#CBDBE3,#54A6C7,
-//#3C4F66,#E9C6C2,#C2C6D5,
-//#B7BEE4,#F3F2EE,#fc9d9a,#c8c8a9
+let colors = ["#005f73","#0a9396","#ee9b00","#ca6702", "#bb3e03", "#ae2012", "#9b2226","#800E12"];
+
 let count=[3,4,5,6]
 
     p.setup=()=>{
@@ -42,16 +38,22 @@ const createBG=()=>{
 }
 
 const wave2=(bg)=>{
-
-    for (let i=0; i<15; i++){
-				let xx = p.randomGaussian(300,200)
-				let yy = p.randomGaussian(450,300)
-				let ww = 20+p.noise(xx * 0.1, yy * 0.1) * 20 
-                let c=p.random(count)
+  for (let i = 0; i < 30; i++) {
+		let size = p.random(p.height * 0.05)*0.8;
+		let x = p.random(-20, p.width + 20);
+		let y = p.random(-20, p.height + 20);
+    let c=p.random(count)
                 
-                bg.noStroke()
-					flower(bg,xx,yy,ww,c,25)
-    			}
+    bg.noStroke()
+		flower(bg,x,y,size,c,size)
+    	}
+  // for (let i = 0; i < p.width * p.height * 0.01; i++) {
+	// 	let x = p.random(p.width);
+	// 	let y = p.random(p.height);
+	// 	let dia = p.noise(x * 0.01, y * 0.01) * 0.5 + 0.5;
+    
+  // }
+
 	}
 
 
@@ -77,7 +79,7 @@ function flower(bg, centerX,centerY,Rc,c,dia){
 let n=p.random(10,30)
 for(let i=1; i<c+1; i++){
     let col=p.color(p.random(colors))
-    col.setAlpha(100)
+    col.setAlpha(200)
 bg.fill(col)
 
 let xx=centerX+(p.cos(360*i/c)*dia)

@@ -47,16 +47,20 @@ const createBG=()=>{
 
 const wave2=(bg)=>{
 
-    for (let i=0; i<20; i++){
-				let xx = 600-(p.randomGaussian(300,300))
-				let yy = 350+(p.randomGaussian(100,150))
+    for (let i=0; i<50; i++){
+				let xx = p.random(0,600)
+				let yy = p.random(0,600)
 				let ww = p.noise(xx * 0.1, yy * 0.1) * 80 
 
 
-                    bg.strokeWeight(1);
-                    bg.stroke(p.random(colors));
-                    let a=p.random([2,3,4,5,6,7,8])
-                    let b=p.random([2,3,4,5,6,7,8])
+                    bg.strokeWeight(2);
+                    let c=p.color(p.random(colors))
+                    bg.stroke(c);
+                    c.setAlpha(200)
+                    bg.fill(c)
+                    bg.strokeWeight(1)
+                    let a=p.random([3])
+                    let b=p.random([5])
                     let n=p.max([a,b])/p.min([a,b])
 					rose(bg,xx,yy,ww,n)
     }
@@ -65,15 +69,22 @@ const wave2=(bg)=>{
 
 
 function rose(bg, centerX,centerY,a, n){
+  bg.translate(centerX,centerY)
+  let r=p.random(0,360)
+  bg.rotate(r)
 bg.beginShape();
-bg.noFill();
+// bg.noFill();
 
   for (let i = 0; i <360000; i++){
+
       let X=centerX+a*p.sin(n*p.radians(i))*p.cos(p.radians(i))
       let Y=centerY+a*p.sin(n*p.radians(i))*p.sin(p.radians(i))
   bg.vertex(X,Y);
 }
+
 bg.endShape()
+bg.rotate(-r)
+bg.translate(-centerX,-centerY)
 }
 
 
