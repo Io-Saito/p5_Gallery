@@ -17,6 +17,7 @@
     "watch": "concurrently \"browser-sync start --server -w\" \" webpack --watch\""
   },
   "dependencies": {
-    "p5": "1.2.0"
+    "p5": "1.2.0",
+    "prune": "^0.0.2"
   }
 }

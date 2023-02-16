@@ -1,11 +1,11 @@
 import * as p5 from 'p5';
 
 export const sketch = (p: p5) => {
-
+    let canvas;
     let x;
     let i;
 p.setup=()=>{
-	p.createCanvas(p.windowWidth, p.windowHeight);
+	canvas=p.createCanvas(p.windowWidth, p.windowHeight);
 	//background("#f0f0f0");
 	p.background("#f4f4f4");
     p.colorMode("hsb")
@@ -152,6 +152,12 @@ function shadow(c) {
 	d.shadowBlur = 20;
 	p.noStroke();
 	d.shadowColor = c;
+}
+
+        p.keyPressed=()=> {
+
+      console.log("pressed")
+      p.saveCanvas(canvas, 'myCanvas', 'jpg');
 }
 
 }

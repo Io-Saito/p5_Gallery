@@ -1241,9 +1241,9 @@ lodash.isfinite@^3.3.2:
   resolved "https://registry.npmjs.org/lodash.isfinite/-/lodash.isfinite-3.3.2.tgz"
   integrity sha1-+4m2WpqAKBgz8LdHizpRBPiY67M=
 
-lodash@^4.17.10, lodash@^4.17.21:
+lodash@^4.17.10, lodash@^4.17.21, lodash@latest:
   version "4.17.21"
-  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 lru-cache@^6.0.0:
@@ -1406,7 +1406,7 @@ p-try@^2.0.0:
 
 p5@1.2.0:
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/p5/-/p5-1.2.0.tgz#8495f926494bde7408b77701f0f30703f9c8a6c7"
+  resolved "https://registry.npmjs.org/p5/-/p5-1.2.0.tgz"
   integrity sha512-om9CSZXjw+BdC/u474nUtrVXAqeSRHNBDteDpIhQqgypziE+hh9BUc/YNl3RT5rX3kNtQlLes2S2sRqFU+S+JA==
 
 parse-json@^5.0.0:
@@ -1468,6 +1468,14 @@ portscanner@2.1.1:
   dependencies:
     async "1.5.2"
     is-number-like "^1.0.3"
+
+prune@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/prune/-/prune-0.0.2.tgz#ca67859be0381f0ea4296db36ec7009fe55c28af"
+  integrity sha512-5ZDNTaYgyOElBdXH5kRWFvyrAj2yHkuR32g9lBftm0SjC3xaq9tU30Ft6TOMHDrQJKGeTtMzPt+KKF85qOOJbg==
+  dependencies:
+    lodash latest
+    sproutid latest
 
 punycode@^2.1.0:
   version "2.1.1"
@@ -1816,6 +1824,13 @@ spdx-license-ids@^3.0.0:
   version "3.0.9"
   resolved "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.9.tgz"
   integrity sha512-Ki212dKK4ogX+xDo4CtOZBVIwhsKBEfsEEcwmJfLQzirgc2jIWdzg40Unxz/HzEUqM1WFzVlQSMF9kZZ2HboLQ==
+
+sproutid@latest:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/sproutid/-/sproutid-0.0.5.tgz#714491833847d3a792ccef2ca5a06535fa1c5165"
+  integrity sha512-b4ToovLPYmdRzfvFhNS8DoHmv+TTW0AebcipzsrTcrHE8WMG3eGlDIJn584bXK95CbCktGQazNSA39Y9qgTDyA==
+  dependencies:
+    lodash latest
 
 "statuses@>= 1.4.0 < 2", "statuses@>= 1.5.0 < 2":
   version "1.5.0"
